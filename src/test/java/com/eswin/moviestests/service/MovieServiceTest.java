@@ -57,6 +57,12 @@ public class MovieServiceTest {
         assertThat(getMoviesIds(movies), is(Arrays.asList(3, 6)));
     }
 
+    @Test
+    public void findMoviesByName() {
+        Collection<Movie> movies = movieService.findMoviesByName("Scream");
+        assertThat(getMoviesIds(movies), is(Arrays.asList(5)));
+    }
+
     private List<Integer> getMoviesIds(Collection<Movie> movies) {
         return movies.stream().map(Movie::getId).collect(Collectors.toList());
     }
